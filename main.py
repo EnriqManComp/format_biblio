@@ -12,6 +12,7 @@ file_sd = sciencedirectObject.read('.\Files\ScienceDirect.txt')
 gsObject = searcher.GoogleScholar()
 file_gs = gsObject.read('.\Files\Google_Scholar.csv',header_activation=True)
 file_gs = gsObject.convert(file_gs)
+file_gs['Title'] = file_gs['Title'].str.upper()
 
 file = utility.export_all(file_ieee,file_sd)
 file = file.reset_index(drop=True)
